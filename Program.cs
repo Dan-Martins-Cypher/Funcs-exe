@@ -1,4 +1,4 @@
-﻿using System; 
+using System; 
 using System.Collections.Generic;
 using controledevoo;
 
@@ -54,7 +54,7 @@ static bool buscaPorConsumo (List<Viagem> listaDeViagens, double Litros) {
    int tamanho = listaDeViagens.Count;
     bool encontrou = false;
         for (int i = 0; i<tamanho; i++){
-        double consumoindividual = listaDeViagens[i].consumo * listaDeViagens[i].km;
+        double consumoindividual = listaDeViagens[i].consumo / listaDeViagens[i].km;
         if (consumoindividual>Litros) {
                     Console.WriteLine("Excedeu: ");
                     Console.WriteLine( "Modelo: " + listaDeViagens[i].modelo +" Placa: " + listaDeViagens[i].placa +  " Destino: " + listaDeViagens[i].destino +" km: " + listaDeViagens[i].km + " Consumo: " + listaDeViagens[i].consumo );
@@ -69,7 +69,7 @@ static bool buscaPorConsumo (List<Viagem> listaDeViagens, double Litros) {
     double gasto = 0;
     double consumototal = 0;
          for (int i = 0; i<tamanho; i++){
-             consumototal = (listaDeViagens[i].consumo * listaDeViagens[i].km);
+             consumototal = (listaDeViagens[i].consumo / listaDeViagens[i].km);
               gasto = consumototal * valorCombustivel;
               Console.WriteLine("Consumo total da viagem do carro de placa: " + listaDeViagens[i].placa + "==>" + consumototal + "Litros");
               Console.WriteLine("Gasto total de todas as viagens: " + gasto + "Reais"); 
@@ -82,8 +82,8 @@ static void calcularGastoGeral(List<Viagem> listaDeViagens, double valorCombusti
     double gasto = 0;
     double consumototal = 0;
         for (int i = 0; i<tamanho; i++){
-            consumototal = consumototal + (listaDeViagens[i].consumo * listaDeViagens[i].km);
-            gasto = gasto + (consumototal * valorCombustivel);
+            consumototal = consumototal + (listaDeViagens[i].consumo / listaDeViagens[i].km);
+            gasto = (consumototal * valorCombustivel);
             }
   Console.WriteLine("Consumo total de todas as viagens: " + consumototal + "Litros");
   Console.WriteLine("Gasto total de todas as viagens: " + gasto + "Reais"); 
